@@ -4,7 +4,7 @@
 | ------------------- | -------- | ------------------------ |
 | nickname            | string   | null: false              |
 | email               | string   | null: false,unique: true |
-| encrypteed_password | string   | null: false　            |
+| encrypted_password  | string   | null: false　            |
 | first_name          | string   | null: false              |
 | last_name           | string   | null: false              |
 | first_name_kana     | string   | null: false              |
@@ -18,17 +18,17 @@
 
 ## products テーブル
 
-| Column                    | Type       | Options           |
-| ------------------------- | ---------- | ----------------- |
-| name                      | string     | null: false       |
-| explanation               | text       | null: false       |
-| category_id               | integer    | null: false       |
-| situation_id              | integer    | null: false       |
-| Shipping charge_id        | integer    | null: false       |
-| shipping_origin_region_id | integer    | null: false       |
-| number_of_day_id          | integer    | null: false       |
-| price                     | integer    | null: false       |
-| user                      | references | foreign_key: true |
+| Column             | Type       | Options                       |
+| ------------------ | ---------- | ----------------------------- |
+| name               | string     | null: false                   |
+| explanation        | text       | null: false                   |
+| category_id        | integer    | null: false                   |
+| situation_id       | integer    | null: false                   |
+| shipping charge_id | integer    | null: false                   |
+| prefecture_id      | integer    | null: false                   |
+| number_of_day_id   | integer    | null: false                   |
+| price              | integer    | null: false                   |
+| user               | references | null: false,foreign_key: true |
 
 ### Association
 
@@ -42,6 +42,7 @@
 | ----------------- | ---------- | ----------------------------- |
 | user              | references | null: false,foreign_key: true |
 | product           | references | null: false,foreign_key: true |
+| purchase_history  | references | null: false,foreign_key: true |
 
 ### Association
 
@@ -57,9 +58,8 @@
 | prefecture_id     | integer    | null: false                   |
 | municipality      | string     | null: false                   |
 | address           | string     | null: false                   |
-| building name     | string     |                               |
+| building_name     | string     |                               |
 | phone_number      | string     | null: false                   |
-| purchase_history  | references | null: false,foreign_key: true |
 
 ### Association
 
