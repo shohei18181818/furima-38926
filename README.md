@@ -7,8 +7,8 @@
 | encrypteed_password | string   | null: false　            |
 | first_name          | string   | null: false              |
 | last_name           | string   | null: false              |
-| first_name          | string   | null: false              |
-| last_name           | string   | null: false              |
+| first_name_kana     | string   | null: false              |
+| last_name_kana      | string   | null: false              |
 | birth_date          | date     | null: false              |
 
 ### Association
@@ -18,21 +18,22 @@
 
 ## products テーブル
 
-| Column                 | Type       | Options           |
-| ---------------------- | ---------- | ----------------- |
-| name                   | string     | null: false       |
-| explanation            | text       | null: false       |
-| category_id            | string     | null: false       |
-| situation              | string     | null: false       |
-| shipping_origin_region | text       | null: false       |
-| number_of_day          | integer    | null: false       |
-| price                  | integer    | null: false       |
-| user                   | references | foreign_key: true |
+| Column                    | Type       | Options           |
+| ------------------------- | ---------- | ----------------- |
+| name                      | string     | null: false       |
+| explanation               | text       | null: false       |
+| category_id               | integer    | null: false       |
+| situation_id              | integer    | null: false       |
+| Shipping charge_id        | integer    | null: false       |
+| shipping_origin_region_id | integer    | null: false       |
+| number_of_day_id          | integer    | null: false       |
+| price                     | integer    | null: false       |
+| user                      | references | foreign_key: true |
 
 ### Association
 
 - belongs_to :user
-- belongs_to :address
+- has_one :address
 
 
 ## buys テーブル
