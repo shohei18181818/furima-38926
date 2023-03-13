@@ -24,7 +24,7 @@
 | explanation        | text       | null: false                   |
 | category_id        | integer    | null: false                   |
 | situation_id       | integer    | null: false                   |
-| shipping charge_id | integer    | null: false                   |
+| shipping_charge_id | integer    | null: false                   |
 | prefecture_id      | integer    | null: false                   |
 | number_of_day_id   | integer    | null: false                   |
 | price              | integer    | null: false                   |
