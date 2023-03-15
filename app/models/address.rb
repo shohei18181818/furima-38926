@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
   
-  belongs_to :buy
+  #belongs_to :buy
 
   has_many :products
   has_many :users
