@@ -41,11 +41,10 @@ class ProductsController < ApplicationController
 
   def destroy
     product = Product.find(params[:id])
-    if product.user != current_user
-      redirect_to  root_path
-    else
+    if current_user = product.user
       product.destroy
     end
+    redirect_to  root_path
   end
 
   private
