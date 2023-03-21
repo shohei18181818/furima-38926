@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   end
 
   def edit
-    unless current_user == @product.user
+    unless current_user == @product.user && @product.buy == nil
       redirect_to action: :index
     end
   end
