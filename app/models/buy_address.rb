@@ -3,9 +3,9 @@ class BuyAddress
   attr_accessor :user_id, :product_id, :post_code, :prefecture_id, :municipality, :address, :building_name, :phone_number, :token
 
   with_options presence: true do
-    validates :user_id, :product_id, :token
+    validates :user_id, :product_id, :token, :municipality, :address
     validates :post_code, format: {with: /\A[0-9]{3}-[0-9]{4}\z/, message: "is invalid. Include hyphen(-)"}
-    validates :prefecture_id, :municipality, :address
+    validates :prefecture_id, numericality: { other_than: 1 } 
     validates :phone_number, format: {with: /\A\d{10,11}\z/}
   end
 
