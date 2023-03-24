@@ -85,19 +85,19 @@ RSpec.describe BuyAddress, type: :model do
       it "tokenが空では登録できないこと" do
         @buy_address.token = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Token can't be blank")
+        expect(@buy_address.errors.full_messages).to include("Tokenを入力してください")
       end
 
       it 'userが紐付いていないと保存できないこと' do
         @buy_address.user_id = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("User can't be blank")
+        expect(@buy_address.errors.full_messages).to include("Userを入力してください")
       end
 
       it 'productが紐付いていないと保存できないこと' do
         @buy_address.product_id = nil
         @buy_address.valid?
-        expect(@buy_address.errors.full_messages).to include("Product can't be blank")
+        expect(@buy_address.errors.full_messages).to include("Productを入力してください")
       end
     end
   end

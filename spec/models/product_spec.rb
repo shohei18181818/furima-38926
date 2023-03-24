@@ -15,25 +15,25 @@ RSpec.describe Product, type: :model do
       it 'imageが空では登録できない' do
         @product.image = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Image can't be blank")
+        expect(@product.errors.full_messages).to include ("商品画像を入力してください")
       end
       it 'nameが空では登録できない' do
         @product.name = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Name can't be blank")
+        expect(@product.errors.full_messages).to include ("商品名を入力してください")
       end
       it 'explanationが空では登録できない' do
         @product.explanation = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Explanation can't be blank")
+        expect(@product.errors.full_messages).to include ("商品の説明を入力してください")
       end
       it 'category_idが空では登録できない' do
         @product.category_id = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Category can't be blank")
+        expect(@product.errors.full_messages).to include ("カテゴリーcan't be blank")
       end
       it 'category_idが「---」を選択した状態では登録できない' do
-        @product.category_id = 'id(1)'
+        @product.category_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include ("Category can't be blank")
       end
@@ -43,7 +43,7 @@ RSpec.describe Product, type: :model do
         expect(@product.errors.full_messages).to include ("Situation can't be blank")
       end
       it 'situation_idが「---」を選択した状態では登録できない' do
-        @product.situation_id = 'id(1)'
+        @product.situation_id = 1
         @product.valid?
         expect(@product.errors.full_messages).to include ("Situation can't be blank")
       end
@@ -80,27 +80,27 @@ RSpec.describe Product, type: :model do
       it 'priceが空では登録できない' do
         @product.price = ''
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Price can't be blank")
+        expect(@product.errors.full_messages).to include ("販売価格は数値で入力してください")
       end
       it 'priceが¥300より少ない時は登録できない' do
         @product.price = '299'
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Price must be greater than or equal to 300")
+        expect(@product.errors.full_messages).to include ("販売価格は300以上の値にしてください")
       end
       it 'priceが¥9999999より多い時は登録できない' do
-        @product.price = '10_000_000'
+        @product.price = '10000000'
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Price must be an integer")
+        expect(@product.errors.full_messages).to include ("販売価格は9999999以下の値にしてください")
       end
       it '価格に半角数字以外が含まれている場合は出品できない' do
         @product.price = '０'
         @product.valid?
-        expect(@product.errors.full_messages).to include ("Price is not a number")
+        expect(@product.errors.full_messages).to include ("販売価格は数値で入力してください")
       end
       it 'userが紐付いていなければ出品できない' do
         @product.user = nil
         @product.valid?
-        expect(@product.errors.full_messages).to include ("User must exist")
+        expect(@product.errors.full_messages).to include ("Userを入力してください")
       end
     end
   end
